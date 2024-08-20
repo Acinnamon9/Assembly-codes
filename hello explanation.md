@@ -1,24 +1,12 @@
-
-### Example: "Hello, World!" in x86 Assembly (Linux)
-
-```asm
-section .data
-    hello db 'Hello, World!', 0xA  ; The string to print (with a newline character)
-    hello_len equ $ - hello         ; Length of the string
-
-section .text
-    global _start                   ; Entry point for the program
-
-_start:
-    ; Write the string to stdout
-    mov eax, 4                      ; syscall number for sys_write (4)
-    mov ebx, 1                      ; file descriptor 1 (stdout)
-    mov ecx, hello                  ; pointer to the string
-    mov edx, hello_len              ; length of the string
-    int 0x80                        ; make the syscall
-
-    ; Exit the program
-    mov eax, 1                      ; syscall number for sys_exit (1)
-    xor ebx, ebx                    ; exit code 0
-    int 0x80                        ; make the syscall
-```
+    
+### Explanation:
+- **section .data**: This is where you define your initialized data. In this example, it contains the "Hello, World!" string.
+- **section .text**: This is where the code is written. The `global _start` directive makes `_start` the entry point for the program.
+- **_start**: This is the main label where the execution begins.
+- **mov**: This instruction moves data from one place to another.
+  - `mov eax, 4`: Sets up the `eax` register to indicate the `sys_write` syscall.
+  - `mov ebx, 1`: Sets up the `ebx` register to indicate that the output should go to stdout.
+  - `mov ecx, hello`: Points the `ecx` register to the string "Hello, World!".
+  - `mov edx, hello_len`: Indicates the length of the string.
+- **int 0x80**: This is the interrupt instruction that makes the system call.
+- **xor ebx, ebx**: This zeroes out the `ebx` register, setting it to 0, which will be used as the exit code.
